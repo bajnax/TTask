@@ -26,14 +26,12 @@ class MainActivity : AppCompatActivity() {
         getUsers()
     }
 
-    // GET List of Articles
     private fun getUsers() {
         call.enqueue(object: Callback<List<User>> {
             override fun onResponse(call: Call<List<User>>, response: retrofit2.Response<List<User>>?) {
                 if (response != null) {
                     var users: List<User> = response.body()!!
                     recyclerView.adapter = UsersAdapter(users)
-                    Log.d("MainActivity", "Amount of users: " + users.size)
                 }
             }
 
@@ -41,10 +39,6 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MainActivity", t.toString());
             }
         })
-    }
-
-    override fun onPause() {
-        super.onPause()
     }
 
 }
