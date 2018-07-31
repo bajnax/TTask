@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item.view.*
+import java.text.SimpleDateFormat
 
 class UsersAdapter(private val users: List<User>): RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
@@ -26,6 +27,7 @@ class UsersAdapter(private val users: List<User>): RecyclerView.Adapter<UsersAda
         fun bindViews(user: User) {
 
             Picasso.get().load(user.avatar).into(itemView.avatar)
+
 
             itemView.name.text = user.name
             itemView.age.text = user.age.toString() + " лет, "
